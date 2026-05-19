@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="te">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>శ్రీ జగన్నాథ రథ యాత్ర - ఆమదాలవలస</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700;900&family=Noto+Sans+Telugu:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --saffron: #FF6B00;
+            --deep-saffron: #E85D00;
+            --gold: #FFD700;
+            --dark-gold: #C8A400;
+            --maroon: #6B0E0E;
+            --deep-maroon: #3D0000;
+            --cream: #FFF8E7;
+            --lotus-pink: #E8587A;
+            --temple-red: #B22222;
+            --green-tulsi: #2D5016;
+            --ivory: #FFFDF0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif Telugu', serif;
+            background: var(--deep-maroon);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMATED BACKGROUND ===== */
+        .bg-mandala {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-mandala::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(255, 107, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 215, 0, 0.06) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(178, 34, 34, 0.1) 0%, transparent 50%);
+            animation: bgPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: scale(1.1) rotate(5deg);
+                opacity: 1;
+            }
+        }
+
+        /* ===== FLOATING PETALS ===== */
+        .petal {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            font-size: 1.2rem;
+            opacity: 0;
+            animation: petalFall linear infinite;
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== TOP DECORATIVE BORDER ===== */
+        .temple-border-top {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(90deg, var(--maroon), var(--deep-saffron), var(--gold), var(--deep-saffron), var(--maroon));
+            height: 8px;
+            animation: borderShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes borderShimmer {
+
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+                filter: brightness(1.3);
+            }
+        }
+
+        /* ===== HEADER / HERO ===== */
+        .hero {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            text-align: center;
+            background:
+                linear-gradient(180deg,
+                    rgba(61, 0, 0, 0.95) 0%,
+                    rgba(107, 14, 14, 0.85) 30%,
+                    rgba(61, 0, 0, 0.9) 70%,
+                    rgba(20, 5, 0, 0.98) 100%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Lotus decoration */
+        .lotus-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease both;
+        }
+
+        .lotus-decoration span {
+            font-size: 1.8rem;
+            animation: lotusFloat 3s ease-in-out infinite;
+        }
+
+        .lotus-decoration span:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .lotus-decoration span:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes lotusFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Om symbol */
+        .om-symbol {
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 107, 0, 0.4);
+            animation: omGlow 2s ease-in-out infinite alternate, fadeInDown 1.2s ease both;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        @keyframes omGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 107, 0, 0.3);
+            }
+
+            100% {
+                text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 107, 0, 0.6), 0 0 120px rgba(255, 165, 0, 0.3);
+            }
+        }
+
+        /* Gold divider */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem auto;
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 1.5s ease both;
+        }
+
+        .gold-divider::before,
+        .gold-divider::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .gold-divider .diamond {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Main title */
+        .main-title {
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.3;
+            color: var(--gold);
+            text-shadow: 2px 2px 0 var(--maroon), 0 0 30px rgba(255, 215, 0, 0.5);
+            animation: titleReveal 1.5s ease both;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes titleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .subtitle-text {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--cream);
+            opacity: 0.9;
+            animation: fadeInUp 2s ease both;
+            margin-bottom: 0.3rem;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* ===== PHOTO GALLERY - DIVINE FRAMES ===== */
+        .gallery-section {
+            position: relative;
+            z-index: 10;
+            padding: 3rem 1rem;
+            background: linear-gradient(180deg, rgba(20, 5, 0, 0.98), rgba(61, 0, 0, 0.9), rgba(20, 5, 0, 0.98));
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            font-weight: 700;
+        }
+
+        /* Carousel */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .divine-frame {
+            position: relative;
+            border: 4px solid var(--gold);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 2px var(--maroon),
+                0 0 0 6px var(--saffron),
+                0 0 40px rgba(255, 215, 0, 0.3),
+                inset 0 0 60px rgba(0, 0, 0, 0.4);
+            background: var(--deep-maroon);
+            aspect-ratio: 3/4;
+            max-height: 70vh;
+        }
+
+        .divine-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: saturate(1.15) contrast(1.05) brightness(1.05);
+            transition: transform 0.6s ease;
+        }
+
+        .carousel-slide:hover .divine-frame img {
+            transform: scale(1.03);
+        }
+
+        /* Frame overlay shimmer */
+        .divine-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(255, 215, 0, 0.08) 0%,
+                    transparent 40%,
+                    transparent 60%,
+                    rgba(255, 107, 0, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        /* Corner ornaments */
+        .corner-ornament {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: 5;
+            color: var(--gold);
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .corner-ornament.tl {
+            top: 5px;
+            left: 5px;
+        }
+
+        .corner-ornament.tr {
+            top: 5px;
+            right: 5px;
+            transform: scaleX(-1);
+        }
+
+        .corner-ornament.bl {
+            bottom: 5px;
+            left: 5px;
+            transform: scaleY(-1);
+        }
+
+        .corner-ornament.br {
+            bottom: 5px;
+            right: 5px;
+            transform: scale(-1, -1);
+        }
+
+        .frame-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem 1rem;
+            background: linear-gradient(transparent, rgba(20, 0, 0, 0.85));
+            text-align: center;
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        /* Carousel nav */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            align-items: center;
+        }
+
+        .carousel-btn {
+            background: linear-gradient(135deg, var(--saffron), var(--dark-gold));
+            border: 2px solid var(--gold);
+            color: var(--deep-maroon);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--maroon);
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 8px var(--gold);
+        }
+
+        /* ===== INFO SECTION ===== */
+        .info-section {
+            position: relative;
+            z-index: 10;
+            padding: 3rem 1rem 4rem;
+            background:
+                linear-gradient(180deg, rgba(20, 5, 0, 0.98), rgba(40, 8, 8, 0.95)),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFD700' fill-opacity='0.03'%3E%3Cpath d='M40 0C17.9 0 0 17.9 0 40s17.9 40 40 40 40-17.9 40-40S62.1 0 40 0zm0 70C23.4 70 10 56.6 10 40S23.4 10 40 10s30 13.4 30 30-13.4 30-30 30z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .info-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(107, 14, 14, 0.4), rgba(61, 0, 0, 0.6));
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            box-shadow:
+                0 0 0 1px var(--saffron),
+                0 0 40px rgba(255, 107, 0, 0.15),
+                0 0 80px rgba(255, 215, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            animation: cardGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes cardGlow {
+            0% {
+                box-shadow: 0 0 0 1px var(--saffron), 0 0 40px rgba(255, 107, 0, 0.15);
+            }
+
+            100% {
+                box-shadow: 0 0 0 1px var(--gold), 0 0 60px rgba(255, 215, 0, 0.25);
+            }
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--saffron), var(--gold), transparent);
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .info-line {
+            text-align: center;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+            transition: all 0.3s;
+        }
+
+        .info-line:last-child {
+            border-bottom: none;
+        }
+
+        .info-line:hover {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 6px;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--saffron);
+            letter-spacing: 1px;
+            font-family: 'Noto Sans Telugu', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-value {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .info-value.large {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .dates-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 0.5rem 0;
+        }
+
+        .date-badge {
+            background: linear-gradient(135deg, var(--maroon), var(--deep-maroon));
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 0.7rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .date-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .date-badge .date-num {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+            line-height: 1;
+        }
+
+        .date-badge .date-label {
+            font-size: 0.8rem;
+            color: var(--saffron);
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        .date-arrow {
+            font-size: 2rem;
+            color: var(--gold);
+            align-self: center;
+            animation: arrowPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowPulse {
+
+            0%,
+            100% {
+                transform: scaleX(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scaleX(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* ===== JAI JAGANNATH FOOTER BANNER ===== */
+        .jai-banner {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, var(--maroon), var(--saffron), var(--dark-gold), var(--saffron), var(--maroon));
+            background-size: 300% 300%;
+            animation: bannerShift 5s ease infinite;
+            padding: 2rem 1rem;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+            margin: 1rem 0;
+        }
+
+        @keyframes bannerShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .jai-text {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--ivory);
+            text-shadow:
+                2px 2px 0 var(--deep-maroon),
+                0 0 30px rgba(255, 255, 200, 0.5);
+            letter-spacing: 3px;
+            animation: jaiPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes jaiPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        /* ===== CENTER FACE IMAGE ===== */
+        .face-section {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 1rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(20, 5, 0, 0.98), rgba(40, 8, 8, 0.95));
+        }
+
+        .face-container {
+            display: inline-block;
+            position: relative;
+            width: min(280px, 75vw);
+            height: min(280px, 75vw);
+        }
+
+        .face-ring {
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            animation: ringRotate 10s linear infinite;
+            background: conic-gradient(from 0deg,
+                    transparent 0%, var(--gold) 5%, transparent 10%,
+                    transparent 90%, var(--gold) 95%, transparent 100%);
+            opacity: 0.6;
+        }
+
+        .face-ring:nth-child(2) {
+            inset: -25px;
+            animation: ringRotate 15s linear infinite reverse;
+            opacity: 0.3;
+        }
+
+        @keyframes ringRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .face-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--gold);
+            box-shadow:
+                0 0 0 3px var(--saffron),
+                0 0 40px rgba(255, 215, 0, 0.5),
+                0 0 80px rgba(255, 107, 0, 0.3);
+            animation: facePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes facePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 3px var(--saffron), 0 0 40px rgba(255, 215, 0, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 5px var(--gold), 0 0 60px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 107, 0, 0.4);
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            position: relative;
+            z-index: 10;
+            background: var(--deep-maroon);
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer p {
+            color: rgba(255, 248, 231, 0.6);
+            font-size: 0.85rem;
+            font-family: 'Noto Sans Telugu', sans-serif;
+        }
+
+        footer .footer-om {
+            font-size: 2rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: omGlow 2s ease-in-out infinite alternate;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .info-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .dates-row {
+                gap: 0.8rem;
+            }
+
+            .date-badge .date-num {
+                font-size: 1.4rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem 2rem;
+            }
+        }
+
+        /* ===== LAMP GLOW ===== */
+        .lamp-row {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            font-size: 2rem;
+            margin: 1rem 0;
+            animation: fadeIn 2s ease both;
+        }
+
+        .lamp-row span {
+            animation: lampFlicker 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px var(--saffron));
+        }
+
+        .lamp-row span:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .lamp-row span:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes lampFlicker {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: drop-shadow(0 0 8px var(--saffron));
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(0.95);
+                filter: drop-shadow(0 0 15px var(--gold));
+            }
+        }
+
+        /* Ticker */
+        .ticker-wrap {
+            position: relative;
+            z-index: 10;
+            overflow: hidden;
+            background: linear-gradient(90deg, var(--deep-maroon), var(--maroon), var(--deep-maroon));
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 0.6rem 0;
+        }
+
+        .ticker {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: tickerScroll 20s linear infinite;
+            gap: 4rem;
+        }
+
+        .ticker span {
+            color: var(--gold);
+            font-size: 1rem;
+            padding: 0 2rem;
+            font-weight: 600;
+        }
+
+        .ticker span::after {
+            content: ' ✦ ';
+            color: var(--saffron);
+            margin-left: 2rem;
+        }
+
+        @keyframes tickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating petals JS injected -->
+    <div class="bg-mandala"></div>
+
+    <!-- Temple border -->
+    <div class="temple-border-top"></div>
+
+    <!-- Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker" id="ticker">
+            <span>🌺 జై జగన్నాథ్ 🌺</span>
+            <span>🙏 శ్రీ శ్రీ శ్రీ జగన్నాధ రథ యాత్ర</span>
+            <span>🌼 16/07/26 నుండి 26/07/26 వరకు</span>
+            <span>🪷 ఆమదాలవలస లో జరుగును</span>
+            <span>🌺 జై జగన్నాథ్ 🌺</span>
+            <span>🙏 శ్రీ శ్రీ శ్రీ జగన్నాధ రథ యాత్ర</span>
+            <span>🌼 16/07/26 నుండి 26/07/26 వరకు</span>
+            <span>🪷 ఆమదాలవలస లో జరుగును</span>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="lotus-decoration">
+            <span>🪷</span><span>🌸</span><span>🪷</span>
+        </div>
+
+        <span class="om-symbol">ॐ</span>
+
+        <div class="gold-divider"><span class="diamond">✦ ✦ ✦</span></div>
+
+        <h1 class="main-title">శ్రీ శ్రీ శ్రీ జగన్నాధ<br>రథ యాత్ర</h1>
+
+        <div class="gold-divider"><span class="diamond">❋</span></div>
+
+        <p class="subtitle-text">ఆమదాలవలస, శ్రీకాకుళం జిల్లా</p>
+        <p class="subtitle-text" style="color: var(--saffron); font-size: clamp(0.9rem,2.5vw,1.1rem);">మా స్వగృహంలో
+            మహోత్సవ వేడుకలు</p>
+
+        <div class="lamp-row">
+            <span>🪔</span><span>🙏</span><span>🪔</span>
+        </div>
+
+        <div class="gold-divider" style="margin-top:1.5rem;"><span class="diamond">✦ ✦ ✦</span></div>
+
+        <!-- Mini date display in hero -->
+        <div style="margin-top:1.5rem;">
+            <div class="dates-row">
+                <div class="date-badge">
+                    <span class="date-num">16</span>
+                    <span class="date-label">జూలై 2026</span>
+                    <span class="date-label" style="color:var(--cream);font-size:0.7rem;">ఆషాఢ శుద్ధ విదియ</span>
+                </div>
+                <div class="date-arrow">→</div>
+                <div class="date-badge">
+                    <span class="date-num">26</span>
+                    <span class="date-label">జూలై 2026</span>
+                    <span class="date-label" style="color:var(--cream);font-size:0.7rem;">ద్వాదశి</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FACE IMAGE ===== -->
+    <div class="face-section reveal">
+        <div class="face-container">
+            <div class="face-ring"></div>
+            <div class="face-ring"></div>
+            <img class="face-img" src="photo5.jpg" alt="శ్రీ జగన్నాథ స్వామి" onerror="this.style.display='none'">
+        </div>
+        <div style="margin-top:1.5rem;">
+            <p style="color:var(--gold);font-size:1.3rem;font-weight:700;text-shadow:0 0 15px rgba(255,215,0,0.5);">🙏
+                జగన్నాథ స్వామికి జయం 🙏</p>
+        </div>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-section reveal">
+        <div class="section-heading">
+            <div class="gold-divider"><span class="diamond">✦ దివ్య దర్శనం ✦</span></div>
+            <h2>స్వామి వారి అలంకారములు</h2>
+            <div class="gold-divider"><span class="diamond">✦</span></div>
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+
+                <div class="carousel-slide">
+                    <div class="divine-frame">
+                        <span class="corner-ornament tl">❧</span>
+                        <span class="corner-ornament tr">❧</span>
+                        <span class="corner-ornament bl">❧</span>
+                        <span class="corner-ornament br">❧</span>
+                        <img src="photo1.jpg" alt="జగన్నాథ అలంకారం 1">
+                        <div class="frame-caption">🌺 మహా పుష్పాలంకారం 🌺</div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="divine-frame">
+                        <span class="corner-ornament tl">❧</span>
+                        <span class="corner-ornament tr">❧</span>
+                        <span class="corner-ornament bl">❧</span>
+                        <span class="corner-ornament br">❧</span>
+                        <img src="photo2.jpg" alt="జగన్నాథ అలంకారం 2">
+                        <div class="frame-caption">🌼 పచ్చ పత్రాలంకారం 🌼</div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="divine-frame">
+                        <span class="corner-ornament tl">❧</span>
+                        <span class="corner-ornament tr">❧</span>
+                        <span class="corner-ornament bl">❧</span>
+                        <span class="corner-ornament br">❧</span>
+                        <img src="photo3.jpg" alt="జగన్నాథ అలంకారం 3">
+                        <div class="frame-caption">🏮 సాయంత్ర దీపాలంకారం 🏮</div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="divine-frame">
+                        <span class="corner-ornament tl">❧</span>
+                        <span class="corner-ornament tr">❧</span>
+                        <span class="corner-ornament bl">❧</span>
+                        <span class="corner-ornament br">❧</span>
+                        <img src="photo4.jpg" alt="జగన్నాథ అలంకారం 4">
+                        <div class="frame-caption">🪷 మల్లె పూల అలంకారం 🪷</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="prevBtn">◀</button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-btn" id="nextBtn">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INFO CARD ===== -->
+    <section class="info-section reveal">
+        <div class="section-heading">
+            <div class="gold-divider"><span class="diamond">✦ మహోత్సవ వివరాలు ✦</span></div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-line">
+                <div class="info-label">🏛️ మహోత్సవం</div>
+                <div class="info-value large">శ్రీ శ్రీ శ్రీ జగన్నాధ రథ యాత్ర</div>
+            </div>
+
+            <div class="info-line">
+                <div class="info-label">📅 ప్రారంభం</div>
+                <div class="info-value">ఆషాఢ శుద్ధ విదియ</div>
+                <div class="info-value" style="color:var(--saffron);">16 జూలై 2026</div>
+            </div>
+
+            <div class="info-line">
+                <div class="info-label">📅 సమాప్తి</div>
+                <div class="info-value">ద్వాదశి</div>
+                <div class="info-value" style="color:var(--saffron);">26 జూలై 2026</div>
+            </div>
+
+            <div class="info-line">
+                <div class="info-label">🗺️ స్థలం</div>
+                <div class="info-value large">ఆమదాలవలస, శ్రీకాకుళం</div>
+                <div class="info-value" style="font-size:1rem;color:var(--cream);opacity:0.9;">మా స్వగృహం నందు</div>
+            </div>
+
+            <div class="info-line" style="padding-top:1.5rem;">
+                <div style="font-size:2rem;margin-bottom:0.5rem;">🙏</div>
+                <div class="info-value" style="color:var(--cream);font-size:1rem;">సర్వులూ ఆహ్వానించబడ్డారు</div>
+                <div style="color:var(--saffron);font-size:0.9rem;margin-top:0.3rem;">స్వామి వారి దర్శనం పొంది ధన్యులు
+                    కండి</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== JAI BANNER ===== -->
+    <div class="jai-banner">
+        <div class="jai-text">🚩 జై జగన్నాథ్ 🚩</div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <span class="footer-om">ॐ</span>
+        <div class="gold-divider"><span class="diamond">✦ ✦ ✦</span></div>
+        <p style="color:var(--gold);font-size:1rem;margin:0.5rem 0;">శ్రీ జగన్నాథ స్వామికి జయమంగళం</p>
+        <p style="margin-top:1rem;">© 2026 • ఆమదాలవలస, శ్రీకాకుళం జిల్లా • ఆంధ్రప్రదేశ్</p>
+        <div style="margin-top:1rem;font-size:1.2rem;opacity:0.7;">🌺 🪷 🌸 🪷 🌺</div>
+    </footer>
+
+    <script>
+        // ===== FLOATING PETALS =====
+        const petals = ['🌺', '🌸', '🪷', '🌼', '✿', '❀'];
+        const body = document.body;
+
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+            petal.style.animationDuration = (8 + Math.random() * 12) + 's';
+            petal.style.animationDelay = (Math.random() * 5) + 's';
+            body.appendChild(petal);
+            setTimeout(() => petal.remove(), 20000);
+        }
+
+        setInterval(createPetal, 800);
+
+        // ===== CAROUSEL =====
+        const track = document.getElementById('carouselTrack');
+        const slides = track.querySelectorAll('.carousel-slide');
+        const dotsContainer = document.getElementById('carouselDots');
+        let current = 0;
+        let autoplay;
+
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            document.querySelectorAll('.dot').forEach((d, i) => {
+                d.classList.toggle('active', i === current);
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            goTo(current - 1);
+            resetAutoplay();
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            goTo(current + 1);
+            resetAutoplay();
+        });
+
+        function startAutoplay() {
+            autoplay = setInterval(() => goTo(current + 1), 4000);
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplay);
+            startAutoplay();
+        }
+
+        startAutoplay();
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
