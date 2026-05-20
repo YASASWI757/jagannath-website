@@ -1104,15 +1104,23 @@
     </footer>
 
     <script>
-        window.addEventListener('load', () => {
+window.addEventListener('load', () => {
     setTimeout(() => {
-        const totalHeight = document.body.scrollHeight - window.innerHeight;
-        let currentPos = 0;
+        let currentPos = window.scrollY;
+        let isPaused = false;
+
+        document.addEventListener('touchstart', () => isPaused = true);
+        document.addEventListener('mousedown', () => isPaused = true);
+        document.addEventListener('touchend', () => isPaused = false);
+        document.addEventListener('mouseup', () => isPaused = false);
+
         const scrollInterval = setInterval(() => {
-            currentPos += 0.5;
-            window.scrollTo(0, currentPos);
-            if (currentPos >= totalHeight) {
-                clearInterval(scrollInterval);
+            if (!isPaused) {
+                currentPos += 1;
+                window.scrollTo(0, currentPos);
+                if (currentPos >= document.body.scrollHeight - window.innerHeight) {
+                    clearInterval(scrollInterval);
+                }
             }
         }, 16);
     }, 3000);
