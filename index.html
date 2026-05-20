@@ -1096,30 +1096,12 @@
 
     <script>
         const audio = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
-let isPlaying = false;
-
-musicBtn.addEventListener('click', () => {
-    if (isPlaying) {
-        audio.pause();
-        musicBtn.textContent = '🎵';
-        isPlaying = false;
-    } else {
-        audio.play();
-        musicBtn.textContent = '🔊';
-        isPlaying = true;
-    }
-});
-
+audio.volume = 0.5;
 document.addEventListener('click', function startMusic() {
-    if (!isPlaying) {
-        audio.play().then(() => {
-            musicBtn.textContent = '🔊';
-            isPlaying = true;
-        }).catch(() => {});
-    }
+    audio.play().catch(() => {});
     document.removeEventListener('click', startMusic);
 });
+
         // ===== FLOATING PETALS =====
         const petals = ['🌺', '🌸', '🪷', '🌼', '✿', '❀'];
         const body = document.body;
