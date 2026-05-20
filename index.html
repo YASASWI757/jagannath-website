@@ -873,10 +873,37 @@
                 transform: translateX(-50%);
             }
         }
+        .music-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6B00, #C8A400);
+    border: 3px solid #FFD700;
+    color: #3D0000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,215,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: musicPulse 2s ease-in-out infinite;
+}
+@keyframes musicPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.5); }
+    50% { box-shadow: 0 0 35px rgba(255,215,0,0.9); }
+}
     </style>
 </head>
 
 <body>
+    <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn">🎵</button>
 
     <!-- Floating petals JS injected -->
     <div class="bg-mandala"></div>
@@ -1068,6 +1095,31 @@
     </footer>
 
     <script>
+        const audio = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+let isPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        musicBtn.textContent = '🎵';
+        isPlaying = false;
+    } else {
+        audio.play();
+        musicBtn.textContent = '🔊';
+        isPlaying = true;
+    }
+});
+
+document.addEventListener('click', function startMusic() {
+    if (!isPlaying) {
+        audio.play().then(() => {
+            musicBtn.textContent = '🔊';
+            isPlaying = true;
+        }).catch(() => {});
+    }
+    document.removeEventListener('click', startMusic);
+});
         // ===== FLOATING PETALS =====
         const petals = ['🌺', '🌸', '🪷', '🌼', '✿', '❀'];
         const body = document.body;
