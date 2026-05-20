@@ -873,34 +873,11 @@
                 transform: translateX(-50%);
             }
         }
-        .music-btn {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 9999;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #FF6B00, #C8A400);
-    border: 3px solid #FFD700;
-    color: #3D0000;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(255,215,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: musicPulse 2s ease-in-out infinite;
-}
-@keyframes musicPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(255,215,0,0.5); }
-    50% { box-shadow: 0 0 35px rgba(255,215,0,0.9); }
-}
     </style>
 </head>
 
 <body>
-   <audio src="music.mp3" autoplay loop></audio>
+   <audio id="bgMusic" src="music.mp3" autoplay loop></audio>
 
 
     <!-- Floating petals JS injected -->
