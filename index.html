@@ -10,6 +10,9 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700;900&family=Noto+Sans+Telugu:wght@400;600&display=swap"
         rel="stylesheet">
     <style>
+        html {
+    scroll-behavior: auto;
+}
         .start-screen {
     position: fixed;
     inset: 0;
@@ -1101,6 +1104,19 @@
     </footer>
 
     <script>
+        window.addEventListener('load', () => {
+    setTimeout(() => {
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        let currentPos = 0;
+        const scrollInterval = setInterval(() => {
+            currentPos += 0.5;
+            window.scrollTo(0, currentPos);
+            if (currentPos >= totalHeight) {
+                clearInterval(scrollInterval);
+            }
+        }, 16);
+    }, 3000);
+});
        const audio = document.getElementById('bgMusic');
 audio.volume = 0.5;
 document.getElementById('startScreen').addEventListener('click', function() {
