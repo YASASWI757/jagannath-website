@@ -10,8 +10,35 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700;900&family=Noto+Sans+Telugu:wght@400;600&display=swap"
         rel="stylesheet">
     <style>
-        html {
-    scroll-behavior: auto;
+        .scroll-hint {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    animation: fadeIn 2s ease;
+    transition: opacity 0.5s ease;
+}
+
+.scroll-hint p {
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-family: 'Noto Sans Telugu', sans-serif;
+}
+
+.scroll-arrow {
+    color: var(--gold);
+    font-size: 1.5rem;
+    animation: bounceDown 1.2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
 }
         .start-screen {
     position: fixed;
@@ -906,6 +933,10 @@
 </head>
 
 <body>
+    <div class="scroll-hint" id="scrollHint">
+    <p>క్రిందకు స్క్రోల్ చేయండి</p>
+    <span class="scroll-arrow">⬇</span>
+</div>
     <div class="start-screen" id="startScreen">
     <img src="pngegg.png" style="width:150px;height:150px;border-radius:50%;border:3px solid gold;">
     <h2>శ్రీ జగన్నాథ స్వామి వారికి జై</h2>
@@ -1104,26 +1135,11 @@
     </footer>
 
     <script>
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        let currentPos = window.scrollY;
-        let isPaused = false;
-
-        document.addEventListener('touchstart', () => isPaused = true);
-        document.addEventListener('mousedown', () => isPaused = true);
-        document.addEventListener('touchend', () => isPaused = false);
-        document.addEventListener('mouseup', () => isPaused = false);
-
-        const scrollInterval = setInterval(() => {
-            if (!isPaused) {
-                currentPos += 1;
-                window.scrollTo(0, currentPos);
-                if (currentPos >= document.body.scrollHeight - window.innerHeight) {
-                    clearInterval(scrollInterval);
-                }
-            }
-        }, 16);
-    }, 3000);
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+        document.getElementById('scrollHint').style.opacity = '0';
+        setTimeout(() => document.getElementById('scrollHint').style.display = 'none', 500);
+    }
 });
        const audio = document.getElementById('bgMusic');
 audio.volume = 0.5;
